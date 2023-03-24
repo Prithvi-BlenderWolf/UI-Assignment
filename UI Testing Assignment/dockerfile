@@ -1,0 +1,18 @@
+# Chrome 80 & Firefox 72
+ 
+# pull image
+FROM cypress/browsers:node14.19.0-chrome100-ff99-edge
+# make directory inside container
+RUN mkdir /app
+WORKDIR /app
+# copy cypress code from host to container
+COPY ./package.json .
+COPY ./.cypress-cucumber-preprocessorrc.json .
+COPY ./cypress.config.js .
+COPY ./cypress ./cypress
+
+# execute the tests
+RUN npm install
+
+ENTRYPOINT [ "npx", "cypress", "run"]
+CMD [ "" ]
