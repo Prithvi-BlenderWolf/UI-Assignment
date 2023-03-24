@@ -37,11 +37,13 @@ Install docker based on your OS version.
 
 **STEP 2 Create Docker File in root folder and build**
 Create docker file in the root folder and start adding, Pull image, create directory and copy cypress code from host to container.
-And build them using docker build -t bynderportaltest .
+And build them using 
+command >> docker build -t bynderportaltest .
 
 **STEP 3 Run them as container**
 Once build is successful docker image is created and test can be executed with required browsers and verify the result in console or docker logs
-docker run -i -t bynderportaltest cypress run --spec cypress/e2e/features/* --browser chrome
+
+command >> docker run -i -t bynderportaltest cypress run --spec cypress/e2e/features/* --browser chrome
 
 
 
